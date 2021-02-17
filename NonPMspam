@@ -1,0 +1,3 @@
+while wait() do
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("ALL HAIL REP AKA GRIMBLOOD | rep0006","All")
+end
