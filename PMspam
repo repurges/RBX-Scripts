@@ -1,5 +1,5 @@
-Message = "BY REPURGESW AKA GRIMBLOOD | rep0006 , EZIO ONTOP ' dsc.gg/NBSZzn9wfw ' "
-Wait_Time = .35
+Message = "ALL HAIL REP AKA GRIMBLOOD | rep0006"
+Wait_Time = .001
 
 while true do
 for i,v in pairs(game.Players:GetPlayers()) do
