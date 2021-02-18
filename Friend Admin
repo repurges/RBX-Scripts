@@ -164,3 +164,15 @@ if cmd:match("<ragdollengine") then
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/repurges/RBX-Scripts/main/RagdollEngine"), true))()
 end
 end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match("<nosit") then
+local RunService = game:GetService("RunService")
+function antiSit()
+if game.Players.LocalPlayer.Character.Humanoid:GetState() == Enum.HumanoidStateType.Seated then 
+game.Players.LocalPlayer.Character.Humanoid.Jump = true
+end
+end
+RunService:BindToRenderStep("tempBinding", 1000, antiSit)
+end
+end)
