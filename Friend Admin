@@ -34,6 +34,8 @@ rejoin (rj)
 -
 dormlife (script for Dormlife)
 -
+ragdollengine (script for ragdollengine)
+-
 pmnuke (spams private messages)
 -
 nuke (spams messages out of pms)
@@ -45,6 +47,8 @@ dupe (Dupes Tools)
 serverhop (serverhops)
 - 
 noclip (noclips)
+-
+nosit (stops you from sitting)
 -
 cmdx (pigeons admin)
 --]]
