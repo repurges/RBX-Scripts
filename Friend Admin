@@ -1,0 +1,166 @@
+game.StarterGui:SetCore("SendNotification", {
+Title = "REP4 Loaded";
+Text = "Some Shitty Name Cause We're Too Fucking Lazy To Make a Better One"; 
+Duration = 5; -- how long the notification should in secounds
+})
+wait(0.2)
+game.StarterGui:SetCore("SendNotification", {
+Title = "Check Dev Console";
+Text = "F9 | /console"; 
+Duration = 5; -- how long the notification should in secounds
+})
+
+
+
+print[[ 
+
+ _______     ________  _______      ___        ____  ____  ____    ____  _____    _    _    
+|_   __ \   |_   __  ||_   __ \   .' _ '.     |_  _||_  _||_   \  /   _||_   _|  | |  | |   
+  | |__) |    | |_ \_|  | |__) |  | (_) '___    \ \  / /    |   \/   |    | |    | |__| |_  
+  |  __ /     |  _| _   |  ___/   .`___'/ _/     > `' <     | |\  /| |    | |   _|____   _| 
+ _| |  \ \_  _| |__/ | _| |_     | (___)  \_   _/ /'`\ \_  _| |_\/_| |_  _| |__/ |   _| |_  
+|____| |___||________||_____|    `._____.\__| |____||____||_____||_____||________|  |_____| 
+                                                                                             
+
+ADMIN PREIFX: <
+
+--]]
+
+print[[
+
+
+CMDS:
+rejoin (rj)
+-
+dormlife (script for Dormlife)
+-
+pmnuke (spams private messages)
+-
+nuke (spams messages out of pms)
+-
+valk (valk for DOLLHOUSE)
+-
+dupe (Dupes Tools)
+- 
+serverhop (serverhops)
+- 
+noclip (noclips)
+-
+cmdx (pigeons admin)
+--]]
+
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("If Chatted = Loaded","All")
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match("<rejoin") then
+wait(0.3)
+local ts = game:GetService("TeleportService")
+local p = game:GetService("Players").LocalPlayer
+ts:Teleport(game.PlaceId, p)
+rejoining = true
+    if syn.queue_on_teleport then
+        syn.queue_on_teleport('game:GetService("ReplicatedFirst"):RemoveDefaultLoadingScreen()')
+    end
+    game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, game.JobId, cmdp)
+    wait(3)
+    rejoining = false
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match("<rj") then
+wait(0.3)
+local ts = game:GetService("TeleportService")
+local p = game:GetService("Players").LocalPlayer
+ts:Teleport(game.PlaceId, p)
+rejoining = true
+    if syn.queue_on_teleport then
+        syn.queue_on_teleport('game:GetService("ReplicatedFirst"):RemoveDefaultLoadingScreen()')
+    end
+    game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, game.JobId, cmdp)
+    wait(3)
+    rejoining = false
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match("<dormlife") then
+    wait(1)
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/repurges/RBX-Scripts/main/Dormlife"), true))()
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match("<pmnuke") then
+wait(1)
+Message = "PRIVATE MESSAGE SPAM/NUKE"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/repurges/RBX-Scripts/main/PMspam", true))();
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match("<nuke") then
+WaitSpam = 1
+wait(WaitSpam)
+while wait() do
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("OUT OF PM SPAM","All")
+end
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match("<valk") then
+    game.StarterGui:SetCore("SendNotification", {
+Title = "DollHouse Valk";
+Text = "Wont Work Out Of DollHouse"; 
+Duration = 5; -- how long the notification should in secounds
+})
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/repurges/RBX-Scripts/main/Dollhouse%20Valk"), true))()
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match("<dupe") then
+game.StarterGui:SetCore("SendNotification", {
+Title = "REJOIN DUPE";
+Text = "WAIT 3 SECONDS  | DUPES 5"; 
+Duration = 3; -- how long the notification should in secounds
+})
+wait(3)
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/repurges/RBX-Scripts/main/RejoinDupe"), true))()
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match("<cmdx") then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match("<serverhop") then
+local x = {}
+    for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
+        if type(v) == "table" and v.maxPlayers > v.playing and v.id ~= game.JobId then
+            x[#x + 1] = v.id
+        end
+    end
+    if #x > 0 then
+        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, x[math.random(1, #x)])
+    else
+        return notify("Serverhop","Couldn't find a server.")
+    end
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match("<noclip") then
+local noclip = true char = game.Players.LocalPlayer.Character while true do if noclip == true then for _,v in pairs(char:children()) do pcall(function() if v.className == "Part" then v.CanCollide = false elseif v.ClassName == "Model" then v.Head.CanCollide = false end end) end end game:service("RunService").Stepped:wait() 
+end
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match("<ragdollengine") then
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/repurges/RBX-Scripts/main/RagdollEngine"), true))()
+end
+end)
