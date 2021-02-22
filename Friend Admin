@@ -1,5 +1,5 @@
 game.StarterGui:SetCore("SendNotification", {
-Title = "REP4 Loaded";
+Title = "M4 & XML4 Loaded";
 Text = "Some Shitty Name Cause We're Too Fucking Lazy To Make a Better One"; 
 Duration = 5; -- how long the notification should in secounds
 })
@@ -52,7 +52,7 @@ noclip (noclips) (r6 only will update)
 -
 nosit (stops you from sitting)
 -
-fps (shows fps)
+fps (shows fps) BROKEN RN
 -
 cmdx (pigeons admin)
 --]]
