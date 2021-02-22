@@ -14,15 +14,15 @@ Duration = 5; -- how long the notification should in secounds
 
 print[[ 
 
- _______     ________  _______      ___        ____  ____  ____    ____  _____    _    _    
-|_   __ \   |_   __  ||_   __ \   .' _ '.     |_  _||_  _||_   \  /   _||_   _|  | |  | |   
-  | |__) |    | |_ \_|  | |__) |  | (_) '___    \ \  / /    |   \/   |    | |    | |__| |_  
-  |  __ /     |  _| _   |  ___/   .`___'/ _/     > `' <     | |\  /| |    | |   _|____   _| 
- _| |  \ \_  _| |__/ | _| |_     | (___)  \_   _/ /'`\ \_  _| |_\/_| |_  _| |__/ |   _| |_  
-|____| |___||________||_____|    `._____.\__| |____||____||_____||_____||________|  |_____| 
+.___  ___.  _  _                  ___   ___ .___  ___.  __       _  _    
+|   \/   | | || |        ___      \  \ /  / |   \/   | |  |     | || |   
+|  \  /  | | || |_      ( _ )      \  V  /  |  \  /  | |  |     | || |_  
+|  |\/|  | |__   _|     / _ \/\     >   <   |  |\/|  | |  |     |__   _| 
+|  |  |  |    | |      | (_>  <    /  .  \  |  |  |  | |  `----.   | |   
+|__|  |__|    |_|       \___/\/   /__/ \__\ |__|  |__| |_______|   |_|   
+                                                                         
                                                                                              
-
-ADMIN PREIFX: <
+ADMIN PREIFX: /
 
 --]]
 
@@ -57,7 +57,7 @@ cmdx (pigeons admin)
 
 game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("If Chatted = Loaded","All")
 game.Players.LocalPlayer.Chatted:connect(function(cmd)
-if cmd:match("<rejoin") then
+if cmd:match("/rejoin") then
 wait(0.3)
 local ts = game:GetService("TeleportService")
 local p = game:GetService("Players").LocalPlayer
@@ -73,7 +73,7 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:connect(function(cmd)
-if cmd:match("<rj") then
+if cmd:match("/rj") then
 wait(0.3)
 local ts = game:GetService("TeleportService")
 local p = game:GetService("Players").LocalPlayer
@@ -89,14 +89,14 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:connect(function(cmd)
-if cmd:match("<dormlife") then
+if cmd:match("/dormlife") then
     wait(1)
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/repurges/RBX-Scripts/main/Dormlife"), true))()
 end
 end)
 
 game.Players.LocalPlayer.Chatted:connect(function(cmd)
-if cmd:match("<pmnuke") then
+if cmd:match("/pmnuke") then
 wait(1)
 Message = "PRIVATE MESSAGE SPAM/NUKE"
 loadstring(game:HttpGet("https://raw.githubusercontent.com/repurges/RBX-Scripts/main/PMspam", true))();
@@ -104,7 +104,7 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:connect(function(cmd)
-if cmd:match("<nuke") then
+if cmd:match("/nuke") then
 WaitSpam = 1
 wait(WaitSpam)
 while wait() do
@@ -114,7 +114,7 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:connect(function(cmd)
-if cmd:match("<valk") then
+if cmd:match("/valk") then
     game.StarterGui:SetCore("SendNotification", {
 Title = "DollHouse Valk";
 Text = "Wont Work Out Of DollHouse"; 
@@ -125,7 +125,7 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:connect(function(cmd)
-if cmd:match("<dupe") then
+if cmd:match("/dupe") then
 game.StarterGui:SetCore("SendNotification", {
 Title = "REJOIN DUPE";
 Text = "WAIT 3 SECONDS  | DUPES 5"; 
@@ -137,13 +137,13 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:connect(function(cmd)
-if cmd:match("<cmdx") then
+if cmd:match("/cmdx") then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()
 end
 end)
 
 game.Players.LocalPlayer.Chatted:connect(function(cmd)
-if cmd:match("<serverhop") then
+if cmd:match("/serverhop") then
 local x = {}
     for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
         if type(v) == "table" and v.maxPlayers > v.playing and v.id ~= game.JobId then
@@ -159,20 +159,20 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:connect(function(cmd)
-if cmd:match("<noclip") then
+if cmd:match("/noclip") then
 local noclip = true char = game.Players.LocalPlayer.Character while true do if noclip == true then for _,v in pairs(char:children()) do pcall(function() if v.className == "Part" then v.CanCollide = false elseif v.ClassName == "Model" then v.Head.CanCollide = false end end) end end game:service("RunService").Stepped:wait() 
 end
 end
 end)
 
 game.Players.LocalPlayer.Chatted:connect(function(cmd)
-if cmd:match("<ragdollengine") then
+if cmd:match("/ragdollengine") then
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/repurges/RBX-Scripts/main/RagdollEngine"), true))()
 end
 end)
 
 game.Players.LocalPlayer.Chatted:connect(function(cmd)
-if cmd:match("<nosit") then
+if cmd:match("/nosit") then
 local RunService = game:GetService("RunService")
 function antiSit()
 if game.Players.LocalPlayer.Character.Humanoid:GetState() == Enum.HumanoidStateType.Seated then 
@@ -184,7 +184,7 @@ end
 end)
 
 game.Players.LocalPlayer.Chatted:connect(function(cmd)
-if cmd:match("<deadpoints") then
+if cmd:match("/deadpoints") then
 
 game.StarterGui:SetCore("SendNotification", {
 Title = "Getting Points For You";
@@ -224,3 +224,4 @@ for _,v in pairs(game:GetService("Workspace"):GetChildren()) do
    end
 end
 end
+end)
