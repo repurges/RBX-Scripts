@@ -36,6 +36,8 @@ dormlife (script for Dormlife)
 -
 ragdollengine (script for ragdollengine)
 -
+deadpoints (be dead forever sim)
+-
 pmnuke (spams private messages)
 -
 nuke (spams messages out of pms)
@@ -50,7 +52,7 @@ noclip (noclips) (r6 only will update)
 -
 nosit (stops you from sitting)
 -
-deadpoints (be dead forever sim)
+fps (shows fps)
 -
 cmdx (pigeons admin)
 --]]
