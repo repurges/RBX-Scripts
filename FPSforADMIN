@@ -1,0 +1,58 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local AdminFPS = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local FPSLabel = Instance.new("TextLabel")
+local UICorner = Instance.new("UICorner")
+
+--Properties:
+
+AdminFPS.Name = "AdminFPS"
+AdminFPS.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+AdminFPS.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = AdminFPS
+Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Frame.BackgroundTransparency = 0.100
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.00868025422, 0, 0.961376846, 0)
+Frame.Size = UDim2.new(0, 43, 0, 25)
+
+FPSLabel.Name = "FPSLabel"
+FPSLabel.Parent = Frame
+FPSLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FPSLabel.BackgroundTransparency = 1.000
+FPSLabel.Position = UDim2.new(0.159090906, 0, 0.0399999991, 0)
+FPSLabel.Size = UDim2.new(0, 43, 0, 24)
+FPSLabel.Font = Enum.Font.Arial
+FPSLabel.Text = "label"
+FPSLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+FPSLabel.TextSize = 15.000
+FPSLabel.TextWrapped = true
+FPSLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner.Parent = Frame
+
+-- Scripts:
+
+local function JHLSB_fake_script() -- FPSLabel.FPSScript 
+	local script = Instance.new('LocalScript', FPSLabel)
+
+	local fps = 0
+	local rs = game:GetService'RunService'
+	
+	function updateFPS()
+		fps = fps + 1
+	end
+	
+	rs.RenderStepped:connect(updateFPS)
+	
+	while wait'1' do
+		script.Parent.Text = fps .." Frames"
+		fps = 0
+	end
+end
+coroutine.wrap(JHLSB_fake_script)()
