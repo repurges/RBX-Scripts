@@ -38,6 +38,10 @@ ragdollengine (script for ragdollengine)
 -
 deadpoints (be dead forever sim)
 -
+brokenbones (gives you inf $$$ in brokenbones)
+-
+snoday (gives all hats)
+-
 pmnuke (spams private messages)
 -
 nuke (spams messages out of pms)
@@ -232,6 +236,22 @@ game.Players.LocalPlayer.Chatted:connect(function(cmd)
 if cmd:match("/fps") then
 
 loadstring(game:HttpGet(("https://github.com/repurges/RBX-Scripts/blob/main/FPSforADMIN"), true))()
+
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match("/brokenbones") then
+
+loadstring(game:HttpGet(("https://pastebin.com/raw/jEzGAVqb"), true))()
+
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match("/snoday") then
+
+loadstring(game:HttpGet(("https://pastebin.com/raw/qdqPrn8i"), true))()
 
 end
 end)
