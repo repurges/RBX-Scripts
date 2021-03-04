@@ -26,6 +26,10 @@ Duration = 5; --math.huge makes it last forever
 
 --CMD START
 game.Players.LocalPlayer.Chatted:connect(function(cmd)
+local cmd = cmd:lower()
+if cmd:sub(1,7) == "prefix " then
+   _G.prefix = cmd:sub(8)
+end
 if cmd:match(_G.prefix.."suitcase") then
 local tool = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool")
     if tool then
