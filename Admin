@@ -24,10 +24,6 @@ Text = "xml5#5555 / xml4#4444";
 Duration = 5; --math.huge makes it last forever
 })
 
---Remove When Done
-game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Chatted = Loaded","All")
-
-
 --CMD START
 game.Players.LocalPlayer.Chatted:connect(function(cmd)
 if cmd:match(_G.prefix.."suitcase") then
