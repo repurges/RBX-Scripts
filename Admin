@@ -68,6 +68,19 @@ end
 end
 end
 end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match(_G.prefix.."backpack") then
+
+local tool = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool")
+	if tool then
+			tool.GripForward = Vector3.new(0.935, 0.354, -0.03)
+				tool.GripPos = Vector3.new(-1.2, 1, 2.3)
+				tool.GripRight = Vector3.new(1, 200, log10)
+				tool.GripUp = Vector3.new(1, 2, 0)
+				end
+end
+end)
 game.Players.LocalPlayer.Chatted:connect(function(cmd)
 if cmd:match(_G.prefix.."demesh") then
 for _,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
