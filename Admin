@@ -1,0 +1,131 @@
+--Prefix
+_G.prefix = "/"--change 4 new prefix
+--Prefix Noti
+local notifsEnabled = true
+local player = game:GetService("Players").LocalPlayer
+
+local function notify(title,text,duritation)
+game:GetService("StarterGui"):SetCore("SendNotification",{
+    Title=title;
+    Text=text;
+    Duritation=duritation;
+})
+end
+
+if notifsEnabled then
+    notify("WELCOME!",player.Name,5)
+    notify("Prefix:",_G.prefix.."",5)
+end
+
+--Credit
+game.StarterGui:SetCore("SendNotification", {
+Title = "CREDIT";
+Text = "xml5#5555 / xml4#4444"; 
+Duration = 5; --math.huge makes it last forever
+})
+
+--Remove When Done
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Chatted = Loaded","All")
+
+
+--CMD START
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match(_G.prefix.."suitcase") then
+local tool = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool")
+    if tool then
+            tool.GripForward = Vector3.new(0.935, 0.354, -0.03)
+                tool.GripPos = Vector3.new(0, 0.7, 0)
+                tool.GripRight = Vector3.new(0.031, 0.003, 1)
+                tool.GripUp = Vector3.new(1, 0, 0)
+                wait()
+                for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+     if v:IsA'Tool' then
+          v.Parent = game.Players.LocalPlayer.Backpack;
+wait()
+for _,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+        v.Parent = game.Players.LocalPlayer.Character
+        wait()
+        for i,v in pairs(game.Players.LocalPlayer.Character.Humanoid:GetPlayingAnimationTracks()) do
+        v:Stop()
+    end
+end
+end
+end
+end
+end
+end)
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match(_G.prefix.."demesh") then
+for _,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+        if v:IsA("Tool") then
+            for _,x in pairs(v:GetDescendants()) do
+                if x.Name == "Mesh" or x.Name == "SpecialMesh" then
+                    x:Destroy()
+                end
+            end
+        end
+    end
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match(_G.prefix.."equipall") then
+    
+for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+   v.Parent = game:GetService("Players").LocalPlayer.Character
+   
+end
+end
+end)
+
+--Local For rjdupe
+Wait_Time = 5
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match(_G.prefix.."rjdupe") then
+    
+    game.StarterGui:SetCore("SendNotification", {
+Title = "Important.";
+Text = "This CMD Only Does 5 At The Time. Will Update Out Of Beta";
+Duration = math.huge;
+Button1 = "Understand"
+})
+game.StarterGui:SetCore("SendNotification", {
+Title = "READ";
+Text = "Please Wait 5 Seconds"; 
+Duration = 5; -- how long the notification should in secounds
+})
+
+wait(Wait_Time)
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/repurges/RBX-Scripts/main/RejoinDupe"), true))()
+    
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match(_G.prefix.."rejoin") then
+    
+    local ts = game:GetService("TeleportService")
+local p = game:GetService("Players").LocalPlayer
+ 
+ts:Teleport(game.PlaceId, p)
+
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match(_G.prefix.."serverhop") then
+    
+    local x = {}
+    for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
+        if type(v) == "table" and v.maxPlayers > v.playing and v.id ~= game.JobId then
+            x[#x + 1] = v.id
+        end
+    end
+    if #x > 0 then
+        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, x[math.random(1, #x)])
+    else
+        return notify("Serverhop","Couldn't find a server.")
+    end
+end
+end)
