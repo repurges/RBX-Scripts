@@ -156,3 +156,29 @@ if cmd:match(_G.prefix.."serverhop") then
     end
 end
 end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match(_G.prefix.."radioanim") then
+
+game.StarterGui:SetCore("SendNotification", {
+Title = "DONE";
+Text = "Removed Radio Animation"; 
+Duration = 5; --math.huge makes it last forever
+})
+
+ wait()
+                for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+     if v:IsA'Tool' then
+          v.Parent = game.Players.LocalPlayer.Backpack;
+wait()
+for _,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+        v.Parent = game.Players.LocalPlayer.Character
+        wait()
+        for i,v in pairs(game.Players.LocalPlayer.Character.Humanoid:GetPlayingAnimationTracks()) do
+        v:Stop()
+    end
+end
+end
+end
+end
+end)
