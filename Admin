@@ -27,7 +27,7 @@ game:GetService("StarterGui"):SetCore("SendNotification",{
 end
 
 if notifsEnabled then
-    notify("WELCOME!",player.Name,5)
+    notify("WELCOME",player.Name,5)
     notify("Prefix:",_G.prefix.."",5)
 end
 
