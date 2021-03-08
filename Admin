@@ -10,7 +10,28 @@ print[[
                                                              
                                                               ]]
 
+--Commands
+print[[
 
+COMMANDS: (this is a temp list, we'll add a gui later-on)
+
+suitcase 
+
+backpack
+
+demesh
+
+equipall
+
+rjdupe
+
+rejoin
+
+serverhop
+
+radioanim
+
+]]
 
 --Prefix
 _G.prefix = "/"--change 4 new prefix
