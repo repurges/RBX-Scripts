@@ -131,7 +131,7 @@ end)
 
 game.Players.LocalPlayer.Chatted:connect(function(cmd)
 if cmd:match(_G.prefix.."rejoin") then
-    
+    wait(0.5)
     local ts = game:GetService("TeleportService")
 local p = game:GetService("Players").LocalPlayer
  
