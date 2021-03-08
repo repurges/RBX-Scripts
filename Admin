@@ -17,6 +17,8 @@ COMMANDS: (this is a temp list, we'll add a gui later-on)
 
 suitcase 
 
+flippedsuitcase
+
 backpack
 
 demesh
@@ -73,6 +75,33 @@ local tool = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool")
                 tool.GripRight = Vector3.new(0.031, 0.003, 1)
                 tool.GripUp = Vector3.new(1, 0, 0)
                 wait()
+                for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+     if v:IsA'Tool' then
+          v.Parent = game.Players.LocalPlayer.Backpack;
+wait()
+for _,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+        v.Parent = game.Players.LocalPlayer.Character
+        wait()
+        for i,v in pairs(game.Players.LocalPlayer.Character.Humanoid:GetPlayingAnimationTracks()) do
+        v:Stop()
+    end
+end
+end
+end
+end
+end
+end)
+
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+if cmd:match(_G.prefix.."flippedsuitcase") then
+
+local tool = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool")
+    if tool then
+            tool.GripForward = Vector3.new(0.935, 0.354, -0.03)
+                tool.GripPos = Vector3.new(0, -0.7, 0)
+                tool.GripRight = Vector3.new(0.031, 0, -150)
+                tool.GripUp = Vector3.new(1, 0, 0)
+               wait()
                 for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
      if v:IsA'Tool' then
           v.Parent = game.Players.LocalPlayer.Backpack;
